@@ -1,12 +1,19 @@
 # Private Valentine Website
 
 ## Overview
-A password-protected personal website designed for one specific visitor with a romantic Valentine's Day theme.
+A password-protected personal website designed for one specific visitor with a romantic Valentine's Day theme. The website supports personalized shareable links with custom greetings.
 
 ## Core Features
 
+### Shareable Personalized Links
+- Support URL parameter `to` for personalized messages (e.g., `?to=Alex`)
+- Display personalized greeting "A special Valentine just for [Name] 💖" when URL parameter is present
+- Show generic greeting when no URL parameter is provided
+- Personalized greeting appears before the password screen with romantic styling and animation
+- Extract and display the name from URL parameter with proper formatting
+
 ### Password Protection
-- Display a password input field as the initial screen
+- Display a password input field after the personalized greeting
 - Only the correct password grants access to the main content
 - Store the correct password "12082006" in the backend for validation
 - Frontend must connect to backend to verify the password immediately upon entry
@@ -34,6 +41,7 @@ A password-protected personal website designed for one specific visitor with a r
 - Romantic color scheme using soft pinks and reds
 - Subtle animated background with floating hearts
 - Responsive design for various screen sizes
+- Romantic font styling for personalized greeting with smooth animations
 
 ## Backend Requirements
 - Store the correct password "12082006" for validation
@@ -46,6 +54,8 @@ A password-protected personal website designed for one specific visitor with a r
 - No user data persistence required beyond password storage and access state
 
 ## Frontend Requirements
+- URL parameter parsing to extract personalized name from `to` parameter
+- Personalized greeting display with romantic styling and animation effects
 - Password input form with immediate backend validation
 - Proper state management to update access state immediately after successful password validation
 - Access state synchronization with backend through validatePassword call and access-check query

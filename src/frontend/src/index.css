@@ -111,6 +111,17 @@
         }
     }
 
+    @keyframes slide-in-from-top {
+        0% {
+            transform: translateY(-2rem);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
     .animate-float {
         animation: float linear infinite;
     }
@@ -119,11 +130,40 @@
         animation: confetti-fall ease-in forwards;
     }
 
+    .animate-in {
+        animation-fill-mode: both;
+    }
+
+    .fade-in {
+        animation-name: fadeIn;
+    }
+
+    .slide-in-from-top {
+        animation-name: slide-in-from-top;
+    }
+
+    .duration-200 {
+        animation-duration: 200ms;
+    }
+
+    .duration-1000 {
+        animation-duration: 1000ms;
+    }
+
     .delay-75 {
         animation-delay: 75ms;
     }
 
     .delay-150 {
         animation-delay: 150ms;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
 }

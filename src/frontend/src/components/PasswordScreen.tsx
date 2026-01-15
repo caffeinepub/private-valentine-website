@@ -4,11 +4,22 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useValidatePassword } from '../hooks/useQueries';
+import PersonalizedGreeting from './PersonalizedGreeting';
 
 export default function PasswordScreen() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [recipientName, setRecipientName] = useState<string | undefined>(undefined);
   const validatePassword = useValidatePassword();
+
+  // Extract 'to' parameter from URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const toParam = params.get('to');
+    if (toParam) {
+      setRecipientName(toParam.trim());
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,7 +55,9 @@ export default function PasswordScreen() {
   }, [password, error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4">
+      <PersonalizedGreeting name={recipientName} />
+      
       <Card className="w-full max-w-md bg-white/90 backdrop-blur-sm shadow-2xl border-rose-200">
         <CardHeader className="text-center space-y-4">
           <div className="mx-auto w-20 h-20 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">

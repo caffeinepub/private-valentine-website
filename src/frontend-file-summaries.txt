@@ -1,10 +1,11 @@
 {
   "frontend/src/App.tsx": "Main application component that conditionally renders password screen or Valentine question based on hasAccess state from backend query, with floating hearts background and loading state handling.",
   "frontend/src/hooks/useQueries.ts": "React Query hooks for password validation and access checking with immediate cache updates via setQueryData to ensure instant UI transitions after successful password entry.",
-  "frontend/src/components/PasswordScreen.tsx": "Password input screen with romantic styling, lock icon, visible error messages for incorrect attempts, auto-clearing errors on typing, and backend validation that triggers immediate access state updates.",
+  "frontend/src/components/PasswordScreen.tsx": "Password input screen with romantic styling that extracts and displays personalized greeting from URL parameter 'to', includes lock icon, visible error messages, auto-clearing errors on typing, and backend validation with immediate access state updates.",
   "frontend/src/components/ValentineQuestion.tsx": "Main Valentine's Day question component with Yes/No buttons, celebratory response for Yes, and playful response for No with multiple click handling.",
   "frontend/src/components/FloatingHearts.tsx": "Animated floating hearts background component that creates romantic atmosphere with randomly positioned and timed heart images.",
   "frontend/src/components/ConfettiAnimation.tsx": "Confetti animation component that displays falling heart confetti when user clicks Yes, creating a celebratory effect.",
-  "frontend/src/index.css": "Global styles with romantic OKLCH color system featuring soft pinks and reds, plus custom animations for floating hearts and confetti effects.",
-  "frontend/tailwind.config.js": "Tailwind configuration with romantic color palette and custom animation utilities."
+  "frontend/src/index.css": "Global styles with romantic OKLCH color system featuring soft pinks and reds, plus custom animations for floating hearts, confetti effects, and slide-in animations for the personalized greeting.",
+  "frontend/tailwind.config.js": "Tailwind configuration with romantic color palette and custom animation utilities.",
+  "frontend/src/components/PersonalizedGreeting.tsx": "New component that displays a personalized romantic greeting with the recipient's name extracted from URL parameter, featuring animated hearts and gradient text styling."
 }
