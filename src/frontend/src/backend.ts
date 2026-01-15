@@ -91,7 +91,6 @@ export class ExternalBlob {
 }
 export interface UserProfile {
     name: string;
-    hasAccess: boolean;
 }
 export enum UserRole {
     admin = "admin",
@@ -106,6 +105,7 @@ export interface backendInterface {
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     hasAccess(): Promise<boolean>;
     isCallerAdmin(): Promise<boolean>;
+    promoteValidatedUser(user: Principal): Promise<void>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
     validatePassword(input: string): Promise<boolean>;
 }
@@ -207,6 +207,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.isCallerAdmin();
+            return result;
+        }
+    }
+    async promoteValidatedUser(arg0: Principal): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.promoteValidatedUser(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.promoteValidatedUser(arg0);
             return result;
         }
     }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Heart, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -25,15 +25,23 @@ export default function PasswordScreen() {
       if (!isValid) {
         setError('Incorrect password. Try again! 💕');
         setPassword('');
+      } else {
+        // Clear error on success
+        setError('');
       }
-      // If valid, the mutation's onSuccess will handle the state update
-      // and the App component will automatically show the Valentine question
     } catch (err) {
       console.error('Password validation error:', err);
       setError('Something went wrong. Please try again.');
       setPassword('');
     }
   };
+
+  // Clear error when user starts typing
+  useEffect(() => {
+    if (password && error) {
+      setError('');
+    }
+  }, [password, error]);
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
@@ -65,7 +73,9 @@ export default function PasswordScreen() {
                 />
               </div>
               {error && (
-                <p className="text-sm text-rose-600 font-medium">{error}</p>
+                <p className="text-sm text-rose-600 font-medium animate-in fade-in duration-200">
+                  {error}
+                </p>
               )}
             </div>
             <Button

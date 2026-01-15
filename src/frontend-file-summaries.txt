@@ -1,7 +1,7 @@
 {
-  "frontend/src/App.tsx": "Main application component that manages authentication state and conditionally renders either the password screen or Valentine question based on access status from the backend query, with floating hearts background.",
-  "frontend/src/hooks/useQueries.ts": "React Query hooks for password validation and access checking with enhanced synchronization including query invalidation, refetch, and direct cache updates to ensure immediate UI state transitions after successful password entry.",
-  "frontend/src/components/PasswordScreen.tsx": "Password input screen with romantic styling, lock icon, error handling, and autofocus that validates password through backend and relies on React Query mutation to trigger UI updates.",
+  "frontend/src/App.tsx": "Main application component that conditionally renders password screen or Valentine question based on hasAccess state from backend query, with floating hearts background and loading state handling.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for password validation and access checking with immediate cache updates via setQueryData to ensure instant UI transitions after successful password entry.",
+  "frontend/src/components/PasswordScreen.tsx": "Password input screen with romantic styling, lock icon, visible error messages for incorrect attempts, auto-clearing errors on typing, and backend validation that triggers immediate access state updates.",
   "frontend/src/components/ValentineQuestion.tsx": "Main Valentine's Day question component with Yes/No buttons, celebratory response for Yes, and playful response for No with multiple click handling.",
   "frontend/src/components/FloatingHearts.tsx": "Animated floating hearts background component that creates romantic atmosphere with randomly positioned and timed heart images.",
   "frontend/src/components/ConfettiAnimation.tsx": "Confetti animation component that displays falling heart confetti when user clicks Yes, creating a celebratory effect.",

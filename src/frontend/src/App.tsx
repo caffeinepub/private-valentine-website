@@ -20,9 +20,8 @@ export default function App() {
     );
   }
 
-  // Show Valentine question when access is granted (hasAccess === true)
-  // Show password screen when access is denied or not yet checked
-  const showValentineQuestion = isFetched && hasAccess === true;
+  // Show Valentine question when access is granted
+  const showValentineQuestion = hasAccess === true;
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-rose-100 via-pink-50 to-red-100">

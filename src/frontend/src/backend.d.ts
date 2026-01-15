@@ -9,7 +9,6 @@ export interface None {
 export type Option<T> = Some<T> | None;
 export interface UserProfile {
     name: string;
-    hasAccess: boolean;
 }
 export enum UserRole {
     admin = "admin",
@@ -23,6 +22,7 @@ export interface backendInterface {
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     hasAccess(): Promise<boolean>;
     isCallerAdmin(): Promise<boolean>;
+    promoteValidatedUser(user: Principal): Promise<void>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
     validatePassword(input: string): Promise<boolean>;
 }

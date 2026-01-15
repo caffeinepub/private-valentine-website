@@ -11,20 +11,13 @@ export function useValidatePassword() {
       const isValid = await actor.validatePassword(password);
       return isValid;
     },
-    onSuccess: async (isValid) => {
+    onSuccess: (isValid) => {
       if (isValid) {
-        // First, invalidate the query to mark it as stale
-        await queryClient.invalidateQueries({ queryKey: ['hasAccess'] });
-        
-        // Then force an immediate refetch and wait for it to complete
-        await queryClient.refetchQueries({ 
-          queryKey: ['hasAccess'],
-          type: 'active',
-          exact: true
-        });
-        
-        // Also set the query data directly to ensure immediate UI update
+        // Immediately update the cache to ensure instant UI transition
         queryClient.setQueryData(['hasAccess'], true);
+        
+        // Invalidate to ensure consistency with backend
+        queryClient.invalidateQueries({ queryKey: ['hasAccess'] });
       }
     },
   });
@@ -42,7 +35,6 @@ export function useCheckAccess() {
     },
     enabled: !!actor && !isFetching,
     staleTime: 0,
-    gcTime: 0,
     refetchOnMount: true,
     refetchOnWindowFocus: false,
     retry: false,

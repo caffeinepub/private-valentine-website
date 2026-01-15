@@ -16,7 +16,10 @@ A password-protected personal website designed for one specific visitor with a r
 - Password validation system must be robust and reliable, ensuring "12082006" always grants access
 - Frontend and backend password validation logic must be perfectly synchronized
 - React Query must properly refetch and update state after successful password validation
-- Incorrect passwords must trigger "wrong password" message without granting access
+- Display visible error message for incorrect password attempts
+- Clear error message immediately upon successful password entry
+- Ensure validatePassword consistently returns true for correct password "12082006"
+- Instant access state update in React Query without requiring refreshes or retries
 
 ### Valentine Question Page
 - After successful password entry, display a romantic-themed page
@@ -39,6 +42,7 @@ A password-protected personal website designed for one specific visitor with a r
 - Ensure password comparison is exact match for "12082006" with reliable validation logic
 - Provide access state query endpoint for frontend to check current access status
 - Password validation must be consistent and never fail for correct password
+- validatePassword function must reliably return true for "12082006" input
 - No user data persistence required beyond password storage and access state
 
 ## Frontend Requirements
@@ -51,6 +55,9 @@ A password-protected personal website designed for one specific visitor with a r
 - Animated responses with visual effects (hearts, confetti)
 - Romantic styling with soft color palette
 - Floating hearts background animation
+- Visible error message display for incorrect password attempts
+- Error message clearing upon successful password entry
 - All interactions and animations handled in frontend
 - Application content displayed in English
-- Robust error handling for incorrect password attempts
+- Robust error handling with immediate user feedback
+- Instant access state updates without page refreshes or retries
