@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 1rem;
+        --background: 0.98 0.02 15;
+        --foreground: 0.25 0.08 15;
+        --card: 1 0.01 15;
+        --card-foreground: 0.25 0.08 15;
+        --popover: 1 0.01 15;
+        --popover-foreground: 0.25 0.08 15;
+        --primary: 0.65 0.18 15;
+        --primary-foreground: 0.98 0.01 15;
+        --secondary: 0.95 0.03 15;
+        --secondary-foreground: 0.35 0.08 15;
+        --muted: 0.95 0.03 15;
+        --muted-foreground: 0.55 0.05 15;
+        --accent: 0.92 0.04 350;
+        --accent-foreground: 0.35 0.08 15;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.90 0.03 15;
+        --input: 0.90 0.03 15;
+        --ring: 0.65 0.15 15;
+        --chart-1: 0.65 0.18 15;
+        --chart-2: 0.70 0.15 350;
+        --chart-3: 0.60 0.20 5;
+        --chart-4: 0.75 0.12 340;
+        --chart-5: 0.68 0.16 25;
+        --sidebar: 0.98 0.02 15;
+        --sidebar-foreground: 0.25 0.08 15;
+        --sidebar-primary: 0.65 0.18 15;
+        --sidebar-primary-foreground: 0.98 0.01 15;
+        --sidebar-accent: 0.95 0.03 15;
+        --sidebar-accent-foreground: 0.35 0.08 15;
+        --sidebar-border: 0.90 0.03 15;
+        --sidebar-ring: 0.65 0.15 15;
+    }
+
+    .dark {
+        --background: 0.20 0.05 15;
+        --foreground: 0.95 0.02 15;
+        --card: 0.25 0.06 15;
+        --card-foreground: 0.95 0.02 15;
+        --popover: 0.25 0.06 15;
+        --popover-foreground: 0.95 0.02 15;
+        --primary: 0.75 0.15 350;
+        --primary-foreground: 0.20 0.05 15;
+        --secondary: 0.30 0.06 15;
+        --secondary-foreground: 0.95 0.02 15;
+        --muted: 0.30 0.06 15;
+        --muted-foreground: 0.65 0.05 15;
+        --accent: 0.40 0.08 350;
+        --accent-foreground: 0.95 0.02 15;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.20 0.05 15;
+        --border: 0.35 0.06 15;
+        --input: 0.35 0.06 15;
+        --ring: 0.60 0.12 350;
+        --chart-1: 0.75 0.15 350;
+        --chart-2: 0.70 0.18 15;
+        --chart-3: 0.65 0.20 5;
+        --chart-4: 0.80 0.12 340;
+        --chart-5: 0.72 0.16 25;
+        --sidebar: 0.25 0.06 15;
+        --sidebar-foreground: 0.95 0.02 15;
+        --sidebar-primary: 0.75 0.15 350;
+        --sidebar-primary-foreground: 0.95 0.02 15;
+        --sidebar-accent: 0.30 0.06 15;
+        --sidebar-accent-foreground: 0.95 0.02 15;
+        --sidebar-border: 0.35 0.06 15;
+        --sidebar-ring: 0.60 0.12 350;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer utilities {
+    @keyframes float {
+        0% {
+            transform: translateY(100vh) translateX(0) rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.6;
+        }
+        90% {
+            opacity: 0.6;
+        }
+        100% {
+            transform: translateY(-100vh) translateX(50px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes confetti-fall {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) rotate(720deg);
+            opacity: 0;
+        }
+    }
+
+    .animate-float {
+        animation: float linear infinite;
+    }
+
+    .animate-confetti-fall {
+        animation: confetti-fall ease-in forwards;
+    }
+
+    .delay-75 {
+        animation-delay: 75ms;
+    }
+
+    .delay-150 {
+        animation-delay: 150ms;
+    }
+}
